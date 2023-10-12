@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import { User } from './dto/user.schema';
 import { AddUser } from './dto/addUser.dto';
 import * as bcrypt from "bcrypt"
+import { UserComment } from './dto/addComments.dto';
 @Injectable()
 export class UserService {
     constructor(@InjectModel(User.name) private userModel) { }
@@ -22,5 +23,13 @@ export class UserService {
 
     getHiddenFuncion() {
         return "This is the Secret Place"
+    }
+
+    async addComment(comment: UserComment) {
+        // return await this.userModel.findOneAndUpdate({ username: comment }, { comments: ["This is the mountain lion"] })
+        return await this.userModel.updateOne(
+            { username: "Mountain Lion" },
+            { $push: { comments: comment.comment } }
+        )
     }
 }
