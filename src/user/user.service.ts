@@ -10,7 +10,7 @@ export class UserService {
 
     async createUser(user: AddUser) {
         const hash = await bcrypt.hash(user.password, 10);
-        return await this.userModel.create({ username: user.username, password: hash })
+        return await this.userModel.create({ username: user.username, password: hash, comments: [] })
     }
     async getUsers() {
         return await this.userModel.find();
