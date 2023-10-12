@@ -1,10 +1,16 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
+import { JwtGuard } from '../auth/guards/jwt-auth.guard';
 
 @Controller('user')
 export class UserController {
     constructor(private readonly userService: UserService) { }
 
+    @UseGuards(JwtGuard)
+    @Get("/secretMessage")
+    getSecret() {
+        return this.userService.getHiddenFuncion()
+    }
 
     @Get()
     getAllUsers() {
@@ -17,5 +23,7 @@ export class UserController {
         return this.userService.getUserByUsername(username)
         return username;
     }
+
+
 
 }
