@@ -10,6 +10,8 @@ export class UserController {
     @UseGuards(JwtGuard)
     @Get("/secretMessage")
     getSecret() {
+        // console.log("Secret message");
+        // return "The secret message."
         return this.userService.getHiddenFuncion()
     }
 
