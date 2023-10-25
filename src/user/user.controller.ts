@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post, UseGuards, Request } from '@nestjs/common';
 import { UserService } from './user.service';
 import { JwtGuard } from '../auth/guards/jwt-auth.guard';
 import { UserComment } from './dto/addComments.dto';
@@ -9,9 +9,10 @@ export class UserController {
 
     @UseGuards(JwtGuard)
     @Get("/secretMessage")
-    getSecret() {
+    getSecret(@Request() req) {
         // console.log("Secret message");
-        // return "The secret message."
+        return "The secret message."
+        return req.user;
         return this.userService.getHiddenFuncion()
     }
 
