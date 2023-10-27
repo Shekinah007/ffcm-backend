@@ -10,10 +10,11 @@ import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
-    // MongooseModule.forRoot("mongodb+srv://shalomsheks:shekssheks@nodetuts.m5oxomk.mongodb.net/dave?retryWrites=true&w=majority"),
-    MongooseModule.forRoot("mongodb://0.0.0.0:27017/ffcm"),
-    // MongooseModule.forRoot(process.env.MONGO_URI),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    // MongooseModule.forRoot("mongodb://0.0.0.0:27017/ffcm"),
+    MongooseModule.forRoot(`${process.env.MONGO_URI}`),
     AuthModule, UserModule
   ],
   controllers: [AppController],
