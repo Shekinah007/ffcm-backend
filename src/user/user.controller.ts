@@ -11,6 +11,7 @@ export class UserController {
     @Get("/secretMessage")
     getSecret(@Request() req) {
         // console.log("Secret message");
+        console.log("Req: ", req.user)
         return "The secret message."
         return req.user;
         return this.userService.getHiddenFuncion()

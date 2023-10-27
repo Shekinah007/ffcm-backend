@@ -15,7 +15,8 @@ export class UserService {
 
     async createUser(user: AddUser) {
         const hash = await bcrypt.hash(user.password, 10);
-        return await this.userModel.create({ username: user.username, password: hash, comments: [] })
+        // return await this.userModel.create({ username: user.username, password: hash, comments: [] })
+        return await this.userModel.create({ ...user, password: hash })
     }
     async getUsers() {
         console.log(this.config.get("jwtSecret"))
