@@ -1,4 +1,3 @@
-
 export class AddUser {
     username: string;
     firstName: string;
@@ -6,5 +5,4 @@ export class AddUser {
     gender: string;
     phone: string;
     password: string;
-    comments: string
 }

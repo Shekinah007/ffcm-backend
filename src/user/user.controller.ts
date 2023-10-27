@@ -7,11 +7,19 @@ import { UserComment } from './dto/addComments.dto';
 export class UserController {
     constructor(private readonly userService: UserService) { }
 
+
+    @UseGuards(JwtGuard)
+    @Get("/profile")
+    getProfile(@Request() req) {
+        console.log("Profile", req.user)
+        return req.user
+    }
+
     @UseGuards(JwtGuard)
     @Get("/secretMessage")
     getSecret(@Request() req) {
         // console.log("Secret message");
-        console.log("Req: ", req.user)
+        console.log("Req: ", req.user.username)
         return "The secret message."
         return req.user;
         return this.userService.getHiddenFuncion()
@@ -33,6 +41,8 @@ export class UserController {
     async addComment(@Body() comment: UserComment) {
         return await this.userService.addComment(comment)
     }
+
+
 
 
 }
