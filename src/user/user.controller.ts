@@ -7,11 +7,11 @@ import { UserComment } from './dto/addComments.dto';
 export class UserController {
     constructor(private readonly userService: UserService) { }
 
-
     @UseGuards(JwtGuard)
     @Get("/profile")
     getProfile(@Request() req) {
-        console.log("Profile", req.user)
+        console.log("Profile", req.user.user)
+        return this.userService.getUserByUsername(req.user.username)
         return req.user
     }
 
@@ -21,8 +21,6 @@ export class UserController {
         // console.log("Secret message");
         console.log("Req: ", req.user.username)
         return "The secret message."
-        return req.user;
-        return this.userService.getHiddenFuncion()
     }
 
     @Get()
