@@ -10,7 +10,7 @@ import { ConfigService } from '@nestjs/config';
 export class UserService {
     constructor(
         @InjectModel(User.name) private userModel,
-        private config: ConfigService
+        // private config: ConfigService
     ) { }
 
     async createUser(user: AddUser) {
@@ -19,7 +19,7 @@ export class UserService {
         return await this.userModel.create({ ...user, password: hash })
     }
     async getUsers() {
-        console.log(this.config.get("jwtSecret"))
+        // console.log(this.config.get("jwtSecret"))
         return await this.userModel.find();
     }
 
