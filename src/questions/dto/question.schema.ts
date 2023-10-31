@@ -10,10 +10,10 @@ export class Question {
     @Prop({ unique: true, required: true })
     mobile: number;
 
-    @Prop({ unique: true, required: true })
+    @Prop({ required: true })
     email: string;
 
-    @Prop({ required: true })
+    @Prop()
     message: string;
 
 }
