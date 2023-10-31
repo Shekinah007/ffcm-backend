@@ -13,6 +13,7 @@ export class QuestionsController {
 
     @Get()
     getQuestions() {
+        console.log("Helloooo")
         return this.questionService.getQuestions();
     }
 
