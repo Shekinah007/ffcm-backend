@@ -10,8 +10,8 @@ export class UserController {
     @UseGuards(JwtGuard)
     @Get("/profile")
     getProfile(@Request() req) {
-        console.log("Profile", req.user.user)
-        return this.userService.getUserByUsername(req.user.username)
+        console.log("Profile User Profile", req.user)
+        return this.userService.getUserByUsernameWithOutPassword(req.user.username)
         return req.user
     }
 

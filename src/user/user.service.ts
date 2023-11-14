@@ -27,6 +27,10 @@ export class UserService {
         return await this.userModel.findOne({ username: username })
     }
 
+    async getUserByUsernameWithOutPassword(username: string) {
+        return await this.userModel.findOne({ username: username }, { password: 0 })
+    }
+
     getHiddenFuncion() {
         return "This is the Secret Place"
     }
