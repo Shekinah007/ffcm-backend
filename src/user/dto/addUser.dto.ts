@@ -5,4 +5,5 @@ export class AddUser {
     gender: string;
     phone: string;
     password: string;
+    role: string;
 }

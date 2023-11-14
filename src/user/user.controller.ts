@@ -39,8 +39,4 @@ export class UserController {
     async addComment(@Body() comment: UserComment) {
         return await this.userService.addComment(comment)
     }
-
-
-
-
 }
