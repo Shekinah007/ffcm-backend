@@ -34,12 +34,15 @@ export class UserService {
     getHiddenFuncion() {
         return "This is the Secret Place"
     }
-
     async addComment(comment: UserComment) {
         // return await this.userModel.findOneAndUpdate({ username: comment }, { comments: ["This is the mountain lion"] })
         return await this.userModel.updateOne(
             { username: "Mountain Lion" },
             { $push: { comments: comment.comment } }
         )
+    }
+
+    async setProfileImg(username, img: string) {
+        return await this.userModel.updateOne({ username: username }, { imgUrl: img })
     }
 }

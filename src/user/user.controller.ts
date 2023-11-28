@@ -39,4 +39,9 @@ export class UserController {
     async addComment(@Body() comment: UserComment) {
         return await this.userService.addComment(comment)
     }
+
+    @Post("/profileImg")
+    updateProfileImage(@Body() update) {
+        return this.userService.setProfileImg(update.username, update.imgUrl)
+    }
 }
