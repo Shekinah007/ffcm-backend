@@ -28,7 +28,6 @@ export class UserController {
         return this.userService.getUsers();
     }
 
-
     @Get("/:username")
     getUser(@Param("username") username: string) {
         return this.userService.getUserByUsername(username)
@@ -43,5 +42,10 @@ export class UserController {
     @Post("/profileImg")
     updateProfileImage(@Body() update) {
         return this.userService.setProfileImg(update.username, update.imgUrl)
+    }
+
+    @Post("/updateProfile")
+    updateProfile(@Body() update) {
+        return this.userService.updateProfile(update)
     }
 }

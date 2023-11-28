@@ -45,4 +45,15 @@ export class UserService {
     async setProfileImg(username, img: string) {
         return await this.userModel.updateOne({ username: username }, { imgUrl: img })
     }
+
+    async updateProfile(update) {
+        console.log(update)
+        return await this.userModel.updateOne({ username: update.username }, {
+            username: update.username,
+            lastName: update.lastName,
+            firstName: update.firstName,
+            imgUrl: update.imgUrl,
+            phone: update.phone
+        })
+    }
 }
