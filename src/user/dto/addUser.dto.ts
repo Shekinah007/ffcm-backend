@@ -6,4 +6,6 @@ export class AddUser {
     phone: string;
     password: string;
     role: string;
+    imgUrl: string;
+    galleryUrls: string;
 }

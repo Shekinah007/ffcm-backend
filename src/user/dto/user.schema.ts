@@ -27,7 +27,11 @@ export class User {
     @Prop()
     comments: string[]
 
+    @Prop()
+    imgUrl: string
 
+    @Prop({ default: "Image Url" })
+    galleryUrls: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User)
