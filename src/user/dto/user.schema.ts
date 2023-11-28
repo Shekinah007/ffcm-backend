@@ -27,7 +27,7 @@ export class User {
     @Prop()
     comments: string[]
 
-    @Prop({ defailt: "" })
+    @Prop({ default: "" })
     imgUrl: string
 
     @Prop({ default: "Image Url" })
