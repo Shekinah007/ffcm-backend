@@ -46,6 +46,7 @@ export class UserController {
 
     @Post("/updateProfile")
     updateProfile(@Body() update) {
+        console.log(update)
         return this.userService.updateProfile(update)
     }
 }
